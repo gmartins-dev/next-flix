@@ -4,7 +4,7 @@ import './MovieRow.module.css'
 
 
 
-export default function MovieRow ({title, items}) {
+export default function MovieRow () {
 
 
 
@@ -12,7 +12,7 @@ export default function MovieRow ({title, items}) {
         
         <div>
 
-            <h2> {title} </h2>
+            <h2> aaaaMovieeeeRowww </h2>
 
         </div>
         

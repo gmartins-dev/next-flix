@@ -1,14 +1,23 @@
-import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
-// import Database from '../src/components/database/Database'
-// import MovieRow from '../src/components/movie-row/MovieRow'
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+// import Tmdb from '../src/components/database/Tmdb';
+// import MovieRow from '../src/components/movie-row/MovieRow';
 
 
-export default function Home() {
+export default function Home({list}) {
   
   
-  
-  
+
+  // useEffect(() => {
+
+  //   const loadAll = async () => {
+  //     //getting API database list
+  //     let list = await Tmdb.getHomeList();
+  //     console.log(list)
+  //   }
+
+  //   loadAll();
+  // }, []);
   
   
   
@@ -27,26 +36,41 @@ export default function Home() {
       
       <div className="page">
           <section className="lists">
-          blablablasectionlists
+          testeeee
           </section>
+          <div>
+            <ul>
+              {list.map(item=>(
+                <li>
+                    <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width="150" /><br/>
+                    {item.title}
+                </li>
+              ))}
+            </ul>
+          </div>
       </div>
       
       
-      
-      
-      
-     
-
-
-    
-
-
-
-
+  
 
 
       <footer>
       </footer>
     </>
-  )
+  );
+}
+
+
+export async function getServerSideProps() {
+
+  const res = await fetch ('http://localhost:3000/api/trending');
+  const json = await res.json();
+
+  return{
+
+    props:{
+      list: json.list
+    }
+
+  }
 }
