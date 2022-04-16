@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1D1D1D;
+  color: #FFFFFF;
+}
+
+
+.Teste {
+  background-color: yellow;
+  color: blue;
+}
