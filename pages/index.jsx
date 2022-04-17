@@ -3,24 +3,25 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 // import Tmdb from '../src/components/database/Tmdb';
-// import MovieRow from '../src/components/movie-row/MovieRow';
 
+import dbApi from './api/dbApi'
+import MovieRow from '../src/components/movie-row/MovieRow'
 
 export default function Home({list}) {
   
-  
+  const [movieList, setMovieList] = useState([]);
 
-  // useEffect(() => {
+  useEffect((  ) => {
 
-  //   const loadAll = async () => {
-  //     //getting API database list
-  //     let list = await Tmdb.getHomeList();
-  //     console.log(list)
-  //   }
+    const loadAll = async () => {
+    let list = await dbApi.getHomeList();
+    setMovieList(list);
 
-  //   loadAll();
-  // }, []);
-  
+
+
+    }
+    loadAll();
+  }, []);
   
   
   
@@ -38,24 +39,25 @@ export default function Home({list}) {
       <main>
       <div className="page">
           <section className="lists">
-          testeeee
+          {movieList.map( (item,key) => (
+
+            <div>
+              <MovieRow key={key} 
+              
+              title={item?.title} 
+              items={item?.items}
+            
+              
+              />
+            </div>
+          
+          ))}
           </section>
           <div>
             
 
-          <Link href="/busca"><button>Buscaaaaaaaaa</button></Link>
+          <Link href="/search"><button>Buscaaaaaaaaa</button></Link>
 
-
-            <ul>
-              {list.map(item=>(
-                <a href={`/movie/${item.id}`}>
-                  <li>
-                    <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width="150" /><br/>
-                    {item.title}
-                  </li>
-                </a>
-              ))}
-            </ul>
             
           </div>
       <Link href="/about">Pagina Sobreee mimmm</Link>  

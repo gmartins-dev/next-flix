@@ -27,6 +27,9 @@ export default function Home({author}) {
             Blabla pagina estatica sobre o autor: {author}
         </div>
 
+
+
+
       </main>
       
   
