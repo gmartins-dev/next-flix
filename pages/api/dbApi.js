@@ -21,12 +21,17 @@ export default {
         {
             slug: 'trending',
             title: 'Recommended',
-            items: await basicFetch(`/trending/all/week&api_key=${apiKey}`)
+            items: await basicFetch(`/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`)
         },
         {
             slug: 'toprated',
             title: 'Top Rated',
-            items: await basicFetch(`/movie/top_rated&api_key=${apiKey}`)
+            items: await basicFetch(`/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${apiKey}`)
+        },
+        {
+            slug: 'theatres',
+            title: 'Movies in theatres',
+            items: await basicFetch(`/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&sort_by=vote_average.desc&api_key=${apiKey}`)
         },
         {
             slug: 'action',

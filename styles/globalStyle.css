@@ -1,27 +1,54 @@
+/* GLOBAL CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-body {
+body{
+  background-color: #111;
+  color: #FFF;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #1D1D1D;
-  color: #FFFFFF;
 }
 
 
-ul {
-  list-style: none;
-  margin: 0px;
+/* MOVIE ROW COMPONENT */
+
+.movieRow{
+  margin-bottom: 30px;
+}
+
+.movieRow h2 {
+  margin: 0 0 0 30px;
+}
+
+.movieRow--listarea{
+  overflow-x: hidden;
+  padding-left: 30px;
+}
+
+.movieRow--list{
+  width: 99999px;
 
 }
 
-li {
+.movieRow--item {
   display: inline-block;
-  margin: 20px;
-
+  width: 150px;
+  cursor: pointer;
 }
 
-a:link, a:visited, a:active {
-	text-decoration:none;
+.movieRow--item img{
+  width: 100%;
+  transform: scale(0.9); /* animação/efeito de "hoover" nas imagens */
+  transition: all ease 0.2s;
+}
+
+.movieRow--item img:hover{
+  transform: scale(1); /* animação/efeito de "hoover" nas imagens */
 }
