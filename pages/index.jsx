@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.css'
 // import Tmdb from '../src/components/database/Tmdb';
 // import MovieRow from '../src/components/movie-row/MovieRow';
 
@@ -33,23 +35,32 @@ export default function Home({list}) {
       </Head>
 
      
-      
+      <main>
       <div className="page">
           <section className="lists">
           testeeee
           </section>
           <div>
+            
+
+          <Link href="/busca"><button>Buscaaaaaaaaa</button></Link>
+
+
             <ul>
               {list.map(item=>(
-                <li>
+                <a href={`/movie/${item.id}`}>
+                  <li>
                     <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width="150" /><br/>
                     {item.title}
-                </li>
+                  </li>
+                </a>
               ))}
             </ul>
+            
           </div>
+      <Link href="/about">Pagina Sobreee mimmm</Link>  
       </div>
-      
+      </main>
       
   
 
@@ -60,7 +71,7 @@ export default function Home({list}) {
   );
 }
 
-
+//function for set server side render mode
 export async function getServerSideProps() {
 
   const res = await fetch ('http://localhost:3000/api/trending');

@@ -10,7 +10,18 @@ body {
 }
 
 
-.Teste {
-  background-color: yellow;
-  color: blue;
+ul {
+  list-style: none;
+  margin: 0px;
+
+}
+
+li {
+  display: inline-block;
+  margin: 20px;
+
+}
+
+a:link, a:visited, a:active {
+	text-decoration:none;
 }
