@@ -6,8 +6,6 @@ import './MovieRow.module.css'
 
 export default function MovieRow ({title, items}) {
 
-
-
     return(
         
         <div>
@@ -23,8 +21,6 @@ export default function MovieRow ({title, items}) {
             </div>
 
         </div>
-        
-
-        
+            
     )
 }
