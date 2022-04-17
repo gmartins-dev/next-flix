@@ -7,6 +7,8 @@ import dbApi from './api/dbApi'
 import MovieRow from '../src/components/movie-row/MovieRow'
 import '../styles/index.module.css'
 import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
+import Header from '../src/components/header/Header';
+
 
 export default function Home({list}) {
   
@@ -47,13 +49,14 @@ export default function Home({list}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     {featuredData && 
-     <FeaturedMovie 
-     item={featuredData} 
-     />
-     }
+      <Header />
       
       <div className="page">
+
+      {featuredData && <FeaturedMovie 
+      item={featuredData} />}
+
+        
           <section className="lists">
           {movieList.map( (item,key) => (
 

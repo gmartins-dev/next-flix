@@ -1,5 +1,5 @@
 import React from "react";
-import './MovieRow.module.css'
+// import './MovieRow.module.css'
  
 
 
@@ -24,8 +24,7 @@ export default function MovieRow ({title, items}) {
                     
                 ))}
                 </div>
-
-
+                
             </div>
 
         </div>
