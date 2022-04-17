@@ -2,13 +2,24 @@ import React from "react";
 import './FeaturedMovie.module.css'
 
 
-export default function FeaturedMovie () {
+export default function FeaturedMovie ({item}) {
 
     return (
 
-        <div>
-            FeatureeeeDdddD
+        <section className="featured"
+        
+            style={{
 
-        </div>
+                backgroundSize : 'cover',
+                backgroundPosition: 'center',
+                backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
+
+            }}>
+
+            <div>
+                {item.original_name}
+            </div>
+
+        </section>
     )
 }

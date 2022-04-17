@@ -52,3 +52,11 @@ body{
 .movieRow--item img:hover{
   transform: scale(1); /* animação/efeito de "hoover" nas imagens */
 }
+
+
+/* FEATURED COMPONENT */
+
+
+.featured{
+  height: 100vh;
+}

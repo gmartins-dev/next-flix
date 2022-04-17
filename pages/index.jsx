@@ -23,12 +23,14 @@ export default function Home({list}) {
     let list = await dbApi.getHomeList();
     setMovieList(list);
 
-    //Pegando o filme em destaque(featured)
-    let originals = list.filter(i=>i.slug === 'originals');
-    let randomFeatured = Math.floor(Math.random() * (originals[0].items.results.length - 1))
-    let featuredChosen = originals[0].items.results[randomFeatured];
-
-    console.log('aquiiiiiii O ERRO --->', featuredChosen);
+    //Pegando  aleatoriamente o filme em destaque(featured)
+    let featuredMovie = list.filter(i=>i.slug === 'originals');
+    let randomFeatured = Math.floor(Math.random() * (featuredMovie[0].items.results.length - 1))
+    let featuredChosen = featuredMovie[0].items.results[randomFeatured];
+    let chosenInfo = await dbApi.getMovieInfo(featuredChosen.id, 'tv');
+    setFeaturedData(chosenInfo);
+    
+    
     }
     loadAll();
   }, []);
