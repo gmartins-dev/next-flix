@@ -6,19 +6,29 @@ import React, { useEffect, useState } from 'react';
 import dbApi from './api/dbApi'
 import MovieRow from '../src/components/movie-row/MovieRow'
 import '../styles/index.module.css'
+import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
 
 export default function Home({list}) {
   
   const [movieList, setMovieList] = useState([]);
 
+  const [featuredData, setFeaturedData] = useState(null);
+
+
   useEffect((  ) => {
 
     const loadAll = async () => {
+
+    //Pegando a lista total de filmes do tmdb
     let list = await dbApi.getHomeList();
     setMovieList(list);
 
+    //Pegando o filme em destaque(featured)
+    let originals = list.filter(i=>i.slug === 'originals');
+    let randomFeatured = Math.floor(Math.random() * (originals[0].items.results.length - 1))
+    let featuredChosen = originals[0].items.results[randomFeatured];
 
-
+    console.log('aquiiiiiii O ERRO --->', featuredChosen);
     }
     loadAll();
   }, []);
@@ -35,7 +45,11 @@ export default function Home({list}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     
+     {featuredData && 
+     <FeaturedMovie 
+     item={featuredData} 
+     />
+     }
       
       <div className="page">
           <section className="lists">
