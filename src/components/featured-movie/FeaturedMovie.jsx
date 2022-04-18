@@ -13,6 +13,12 @@ export default function FeaturedMovie ({item}) {
         genres.push(item.genres[i].name);
     }
 
+    //para a descripção não ultrapassar um limite de texto determinado
+    let description = item.overview;
+    if(description.length >200) {
+        description = description.substring(0, 200) + ' (...)';
+    }
+
     return (
 
         <section className="featured"
@@ -45,7 +51,7 @@ export default function FeaturedMovie ({item}) {
                             <strong>Genres: </strong> {genres.join(', ')}
                         </div>
                         <div className="featured--description">
-                            {item.overview}
+                            {description}
                         </div>
                         <div className="featured--buttons">
                             <div className="featured--watchbutton">
