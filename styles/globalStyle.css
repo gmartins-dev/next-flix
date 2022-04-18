@@ -15,7 +15,6 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-
 /* MOVIE ROW COMPONENT */
 
 .movieRow{
@@ -171,6 +170,18 @@ body{
   color: #FFF;
 }
 
+.featured--watchbutton a:link, a:visited, a:hover, a:active{
+  background-color: #FFF;
+  color: #000;
+  text-decoration: none;
+}
+
+.featured--mylistbutton a:link, a:visited, a:hover, a:active{
+  background-color: #333;
+  color: #FFF;
+  text-decoration: none;
+}
+
 .featured--genres{
   margin-top: 15px;
   font-size: 18px;
@@ -179,7 +190,6 @@ body{
 .lists {
   margin-top: -150px;
 }
-
 
 
 /* HEADER COMPONENT */
