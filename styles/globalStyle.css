@@ -242,3 +242,35 @@ footer{
   align-items: center;
   justify-content: center;
 }
+
+/* RESPONSIVE COMPONENT */
+
+@media (max-width:760px){
+
+  .movieRow--left,
+  .movieRow--right{
+    opacity: 1;
+  }
+
+  .featured{
+    height: 90vh;
+  }
+  .featured--name{
+    font-size: 40px;
+  }
+  .featured--info{
+    font-size: 16px;
+  }
+  .featured--description{
+    font-size: 14px;
+    max-width: 100%;
+    margin-right: 30px;
+  }
+  .featured--genres{
+    font-size: 14px;
+  }
+  .featured--watchbutton,
+  .featured--mylistbutton{
+    font-size: 16px;
+  }
+}
