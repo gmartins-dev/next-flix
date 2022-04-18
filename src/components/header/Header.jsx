@@ -4,9 +4,9 @@ import React from "react";
 
 
 
- export default function Header () {
+ export default function Header ({black}) {
     return(
-        <header>
+        <header className={black ? 'black' : ''}>
             <div className="header--logo">
                 <a href="#">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Netflix_logo.svg" />

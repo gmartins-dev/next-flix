@@ -16,6 +16,9 @@ export default function Home({list}) {
 
   const [featuredData, setFeaturedData] = useState(null);
 
+  //variavel para controlar quando o header deve ficar transparente ou preto
+  const [blackHeader, setBlackHeader] = useState(false);
+
 
   useEffect((  ) => {
 
@@ -31,14 +34,28 @@ export default function Home({list}) {
     let featuredChosen = featuredMovie[0].items.results[randomFeatured];
     let chosenInfo = await dbApi.getMovieInfo(featuredChosen.id, 'tv');
     setFeaturedData(chosenInfo);
-    
-    
     }
     loadAll();
   }, []);
   
-  
+  //useeffect usado no header para controlar 
+  //quando deve ficar black ou transparente
+  useEffect(() => {
 
+    const scrollListener = () => {
+      if(window.scrollY > 10){
+        setBlackHeader(true);
+      }else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, []);
   
   
   return (
@@ -49,7 +66,7 @@ export default function Home({list}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header black={blackHeader} />
       
       <div className="page">
 
@@ -75,11 +92,11 @@ export default function Home({list}) {
           <div>
             
 
-          <Link href="/search"><button>Buscaaaaaaaaa</button></Link>
+          {/* <Link href="/search"><button>Buscaaaaaaaaa</button></Link> */}
 
             
           </div>
-      <Link href="/about">Pagina Sobreee mimmm</Link>  
+      {/* <Link href="/about">Pagina Sobreee mimmm</Link>   */}
       </div>
       
       
@@ -87,7 +104,19 @@ export default function Home({list}) {
 
 
       <footer>
+        Made using Next framework for React
+        <br/>by @guilhermemm-dev
+        <br/>This is not a commercial project, 
+        <br/>it was made for the purpose of practical learning only.
       </footer>
+      
+      //verificação para o loading aparecer apenas antes do site carregar
+      {movieList.length <= 0 &&
+        <div className="loading">
+        <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" />
+        </div>
+      }
+
     </main>
   );
 }

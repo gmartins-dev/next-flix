@@ -2,7 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
 * {
   padding: 0;
   margin: 0;
@@ -33,7 +32,7 @@ body{
 }
 
 .movieRow--list{
-  width: 99999px;
+  transition: all ease 0.5s;
 
 }
 
@@ -51,6 +50,34 @@ body{
 
 .movieRow--item img:hover{
   transform: scale(1); /* animação/efeito de "hoover" nas imagens */
+}
+
+.movieRow--left, .movieRow--right{
+  position: absolute;
+  width: 40px;
+  height: 225px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+
+.movieRow--left{
+  left: 0;
+}
+
+.movieRow--right{
+  right: 0;
+}
+
+.movieRow:hover .movieRow--left, 
+.movieRow:hover .movieRow--right {
+  opacity: 1;
 }
 
 
@@ -168,6 +195,12 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
+  background: transparent;
+  transition: all ease 0.5s;
+}
+
+header.black{
+  background-color: #141414;
 }
 
 .header--logo {
@@ -185,4 +218,27 @@ header{
 .header--user img{
   height: 100%;
   border-radius: 3px;
+}
+
+
+/* FOOTER COMPONENT */
+
+footer{
+  margin: 50px 0;
+  text-align: center;
+}
+
+/* LOADING COMPONENT */
+
+.loading{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
