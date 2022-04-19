@@ -16,7 +16,7 @@ export default function Home({list}) {
         
         if(searchText !== '') {
                 //requisição de busca na api:
-                const result = await fetch(`pages/api/search?q=${searchText}`)
+                const result = await fetch(`${apiBase}/search?q=${searchText}?api_key=${apiKey}`);
                 //transformar em json:
                 const json = await result.json();
                 //fornecer o resultado:

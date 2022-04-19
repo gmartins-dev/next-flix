@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
 
 
     //variavel responsavel por pegar o ID do filme especifico
-  const res = await fetch (`pages/api/movie/${context.params.id}`);
+  const res = await fetch (`${apiBase}/movie/${context.params.id}?api_key=${apiKey}`);
   const json = await res.json();
 
   return{
