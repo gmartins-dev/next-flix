@@ -50,7 +50,7 @@ export default function Home({list}) {
                 <button onClick={handleSearch}>Search</button>          
             </div>
 
-            <ul className="movieList">
+            <ul key={"searchList"} className="movieList">
                
                 {movieList.map (item => (
 

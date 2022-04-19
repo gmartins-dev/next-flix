@@ -74,7 +74,7 @@ export default function Home({list}) {
       item={featuredData} />}
 
         
-          <section className="lists">
+          <section key={"mList"} className="lists">
           {movieList.map( (item,key) => (
 
             <div>

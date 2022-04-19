@@ -43,7 +43,7 @@ export default function MovieRow ({title, items}) {
 
             <div className="movieRow--listarea">
 
-                <div key={"key"}
+                <div key={"mrList"}
                 className="movieRow--list" 
                 style={{marginLeft: scrollX, width: items.results.length * 150
                 }}>
