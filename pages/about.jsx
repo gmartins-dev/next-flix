@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css'
+
 // import Tmdb from '../src/components/database/Tmdb';
 // import MovieRow from '../src/components/movie-row/MovieRow';
 
