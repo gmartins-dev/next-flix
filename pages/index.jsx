@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
-// import styles from '../styles/Home.module.css'
-
 import dbApi from './api/dbApi'
+import { apiBase, apiKey } from "../lib/tmdb";
 import MovieRow from '../src/components/movie-row/MovieRow'
 import '../styles/index.module.css'
 import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
@@ -117,10 +115,12 @@ export default function Home({list}) {
   );
 }
 
+
 //function for set server side render mode
 export async function getServerSideProps() {
-
-  const res = await fetch (`${apiBase}/trending?api_key=${apiKey}`);
+  
+                            
+  const res = await fetch (`/trending/tv/week?api_key=${apiKey}`);
   const json = await res.json();
 
   return{
