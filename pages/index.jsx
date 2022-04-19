@@ -74,10 +74,10 @@ export default function Home({list}) {
       item={featuredData} />}
 
         
-          <section key={"mList"} className="lists">
+          <section className="lists">
           {movieList.map( (item,key) => (
 
-            <div>
+            <div key={"keyMr"}>
               <MovieRow key={key} 
               
               title={item?.title} 
@@ -90,13 +90,9 @@ export default function Home({list}) {
           ))}
           </section>
           <div>
-            
 
-          {/* <Link href="/search"><button>Buscaaaaaaaaa</button></Link> */}
-
-            
           </div>
-      {/* <Link href="/about">Pagina Sobreee mimmm</Link>   */}
+     
       </div>
       
       
@@ -110,8 +106,8 @@ export default function Home({list}) {
         <br/>it was made for the purpose of practical learning only.
       </footer>
       
-      //verificação para o loading aparecer apenas antes do site carregar
-      {movieList.length <= 0 &&
+    
+      {movieList.length <= 0 && /* verificação para o loading aparecer apenas antes do site carregar */
         <div className="loading">
         <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" />
         </div>

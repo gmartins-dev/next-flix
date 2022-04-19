@@ -50,12 +50,12 @@ export default function Home({list}) {
                 <button onClick={handleSearch}>Search</button>          
             </div>
 
-            <ul key={"searchList"} className="movieList">
+            <ul className="movieList">
                
                 {movieList.map (item => (
 
-                    <li>
-                        <a href={`/movie/${item.id}`}>
+                    <li key={"keyMl"}>
+                        <a key={"keyLink"} href={`/movie/${item.id}`}>
                             <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width="150" /><br/>
                             {item.title}
                         </a>
