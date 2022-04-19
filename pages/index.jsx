@@ -120,7 +120,7 @@ export default function Home({list}) {
 //function for set server side render mode
 export async function getServerSideProps() {
 
-  const res = await fetch ('http://localhost:3000/api/trending');
+  const res = await fetch ('pages/api/trending');
   const json = await res.json();
 
   return{

@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
 
 
     //variavel responsavel por pegar o ID do filme especifico
-  const res = await fetch (`http://localhost:3000/api/movie/${context.params.id}`);
+  const res = await fetch (`pages/api/movie/${context.params.id}`);
   const json = await res.json();
 
   return{
