@@ -43,14 +43,14 @@ export default function MovieRow ({title, items}) {
 
             <div className="movieRow--listarea">
 
-                <div key={"key"} 
-                className="movieRow--list"
+                <div key={"key"}
+                className="movieRow--list" 
                 style={{marginLeft: scrollX, width: items.results.length * 150
                 }}>
            
                 {items?.results?.length > 0 && items?.results.map((item, key) => (
                     
-                    <div className="movieRow--item"> 
+                    <div key={"key"} className="movieRow--item"> 
                       <img src= {`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
                     </div>
                     
