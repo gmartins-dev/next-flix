@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import dbApi from './api/dbApi'
-import MovieRow from '../src/components/movie-row/MovieRow'
-import '../styles/index.module.css'
-import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
 import Header from '../src/components/header/Header';
+import MovieRow from '../src/components/movie-row/MovieRow'
+import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
 import axios from 'axios'
+import dbApi from './api/dbApi'
 import { apiBase, apiKey} from '../lib/tmdb'
 
 
