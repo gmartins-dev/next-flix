@@ -119,8 +119,8 @@ export default function Home({list}) {
 //function for set server side render mode
 export async function getServerSideProps() {
   
-                            
-  const res = await fetch (`/trending/tv/week?api_key=${apiKey}`);
+                
+  const res = await fetch ("https://api.themoviedb.org/3/trending/tv/week?api_key=fbebdab96fb21b739942d1a592853f3e"); //PROBLEMA TA AQUI
   const json = await res.json();
 
   return{
