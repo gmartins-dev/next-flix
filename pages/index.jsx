@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import dbApi from './api/dbApi'
-import { apiBase, apiKey } from "../lib/tmdb";
 import MovieRow from '../src/components/movie-row/MovieRow'
 import '../styles/index.module.css'
 import FeaturedMovie from '../src/components/featured-movie/FeaturedMovie';
 import Header from '../src/components/header/Header';
+import axios from 'axios'
+import { apiBase, apiKey} from '../lib/tmdb'
+
 
 
 export default function Home({list}) {
@@ -30,6 +32,7 @@ export default function Home({list}) {
     let featuredMovie = list.filter(i=>i.slug === 'originals');
     let randomFeatured = Math.floor(Math.random() * (featuredMovie[0].items.results.length - 1))
     let featuredChosen = featuredMovie[0].items.results[randomFeatured];
+    console.log({featuredMovie, randomFeatured, featuredChosen}) 
     let chosenInfo = await dbApi.getMovieInfo(featuredChosen.id, 'tv');
     setFeaturedData(chosenInfo);
     }
@@ -75,7 +78,7 @@ export default function Home({list}) {
           <section className="lists">
           {movieList.map( (item,key) => (
 
-            <div key={"keyMr"}>
+            
               <MovieRow key={key} 
               
               title={item?.title} 
@@ -83,7 +86,7 @@ export default function Home({list}) {
             
               
               />
-            </div>
+            
           
           ))}
           </section>
@@ -120,13 +123,14 @@ export default function Home({list}) {
 export async function getServerSideProps() {
   
                 
-  const res = await fetch ("https://api.themoviedb.org/3/trending/tv/week?api_key=fbebdab96fb21b739942d1a592853f3e"); //PROBLEMA TA AQUI
-  const json = await res.json();
+//PROBLEMA TA AQUI https://api.themoviedb.org/3/trending/tv/week?api_key=fbebdab96fb21b739942d1a592853f3e
+  const response = await axios.get(`${apiBase}/trending/tv/week?api_key=${apiKey}`);
+  
 
   return{
 
     props:{
-      list: json.list
+      list: response.data.results
     }
 
   }

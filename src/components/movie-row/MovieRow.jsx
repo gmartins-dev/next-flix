@@ -50,7 +50,7 @@ export default function MovieRow ({title, items}) {
            
                 {items?.results?.length > 0 && items?.results.map((item, key) => (
                     
-                    <div key={"keyMri"} className="movieRow--item"> 
+                    <div key={`movieRowKey${key}`} className="movieRow--item"> 
                       <img src= {`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
                     </div>
                     
