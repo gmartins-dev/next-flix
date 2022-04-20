@@ -1,4 +1,3 @@
-
 import { apiBase, apiKey } from "../../lib/tmdb";
 
 const basicFetch = async (endpoint) => {

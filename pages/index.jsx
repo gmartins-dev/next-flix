@@ -31,8 +31,7 @@ export default function Home({list}) {
     //Pegando  aleatoriamente o filme em destaque(featured)
     let featuredMovie = list.filter(i=>i.slug === 'originals');
     let randomFeatured = Math.floor(Math.random() * (featuredMovie[0].items.results.length - 1))
-    let featuredChosen = featuredMovie[0].items.results[randomFeatured];
-    console.log({featuredMovie, randomFeatured, featuredChosen}) 
+    let featuredChosen = featuredMovie[0].items.results[randomFeatured]; 
     let chosenInfo = await dbApi.getMovieInfo(featuredChosen.id, 'tv');
     setFeaturedData(chosenInfo);
     }
@@ -113,7 +112,7 @@ export default function Home({list}) {
         <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" />
         </div>
       }
-      
+
 
     </main>
   );
