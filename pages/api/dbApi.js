@@ -22,11 +22,7 @@ export default {
             title: 'Recommended',
             items: await basicFetch(`/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`)
         },
-        {
-            slug: 'toprated',
-            title: 'Top Rated',
-            items: await basicFetch(`/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`) //esta com endereço errado so para teste
-        },
+        //add top-rated and others categorys
         {
             slug: 'theatres',
             title: 'Movies in theatres',
