@@ -25,7 +25,7 @@ export default {
         {
             slug: 'toprated',
             title: 'Top Rated',
-            items: await basicFetch(`/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${apiKey}`)
+            items: await basicFetch(`/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`) //esta com endereço errado so para teste
         },
         {
             slug: 'theatres',
