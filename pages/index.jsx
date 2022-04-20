@@ -122,8 +122,7 @@ export default function Home({list}) {
 //function for set server side render mode
 export async function getServerSideProps() {
   
-                
-//PROBLEMA TA AQUI https://api.themoviedb.org/3/trending/tv/week?api_key=fbebdab96fb21b739942d1a592853f3e
+              
   const response = await axios.get(`${apiBase}/trending/tv/week?api_key=${apiKey}`);
   
 
